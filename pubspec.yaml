@@ -17,7 +17,10 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  built_value:
   jaguar_orm:
+  sqflite:
+  jaguar_query_sqflite: ^2.2.9
   flutter:
     sdk: flutter
 
