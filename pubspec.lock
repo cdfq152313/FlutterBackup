@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.34.3"
+  analyzer_plugin:
+    dependency: transitive
+    description:
+      name: analyzer_plugin
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1-alpha.6"
   args:
     dependency: transitive
     description:
@@ -82,6 +89,13 @@ packages:
     dependency: "direct main"
     description:
       name: built_value
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.4.0"
+  built_value_generator:
+    dependency: "direct dev"
+    description:
+      name: built_value_generator
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.4.0"
@@ -185,7 +199,7 @@ packages:
       name: html
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.0+1"
+    version: "0.13.4+2"
   http:
     dependency: transitive
     description:
@@ -464,6 +478,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.6"
+  utf:
+    dependency: transitive
+    description:
+      name: utf
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.0+5"
   vector_math:
     dependency: transitive
     description:

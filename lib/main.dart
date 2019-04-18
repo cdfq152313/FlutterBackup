@@ -3,7 +3,8 @@
 // found in the LICENSE file.
 
 
-import 'package:orm_demo/demo/easy_demo.dart';
+import 'package:orm_demo/demo/hard_demo.dart';
+
 
 void main() async {
   await run();
