@@ -1,15 +1,19 @@
 import 'dart:async';
 import 'package:jaguar_query/jaguar_query.dart';
 import 'package:jaguar_orm/jaguar_orm.dart';
-// import 'package:jaguar_query_sqflite/jaguar_query_sqflite.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 
 part 'post.jorm.dart';
+part 'post.g.dart';
 
-// The model
+@JsonSerializable(nullable: false)
 class Post {
   Post();
 
   Post.make(this.id, this.msg, this.stars, this.read, this.at);
+  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
+
 
   @PrimaryKey()
   int id;
@@ -28,6 +32,8 @@ class Post {
 
   String toString() =>
       'Post(id: $id, message: $msg, stars: $stars, read: $read, at: $at)';
+  Map<String, dynamic> toJson() => _$PostToJson(this);
+
 }
 
 @GenBean()
