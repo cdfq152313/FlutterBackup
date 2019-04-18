@@ -42,8 +42,8 @@ void run() async {
   Log.debug("");
 
   Log.debug("=== find data ===");
-  Post post1 = await bean.find(id1);
-  Log.debug('Find id$id1. Result: ' + post1.toString());
+  post = await bean.find(id1);
+  Log.debug('Find id$id1. Result: ' + post.toString());
   Log.debug("");
 
   Log.debug("=== Json Serialization===");

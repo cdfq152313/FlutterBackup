@@ -14,7 +14,6 @@ class Post {
   Post.make(this.id, this.msg, this.stars, this.read, this.at);
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 
-
   @PrimaryKey()
   int id;
 
@@ -28,12 +27,20 @@ class Post {
   double stars;
 
   @Column(isNullable: true)
+  @JsonKey(toJson: Post.dateToString, fromJson: stringToDate)
   DateTime at;
 
   String toString() =>
       'Post(id: $id, message: $msg, stars: $stars, read: $read, at: $at)';
   Map<String, dynamic> toJson() => _$PostToJson(this);
 
+  static DateTime stringToDate(String s){
+    return DateTime.now();
+  }
+
+  static String dateToString(DateTime datetime){
+    return "2011-11-11T11:11:11";
+  }
 }
 
 @GenBean()

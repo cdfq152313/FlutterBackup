@@ -12,7 +12,7 @@ Post _$PostFromJson(Map<String, dynamic> json) {
     ..msg = json['msg'] as String
     ..read = json['read'] as bool
     ..stars = (json['stars'] as num).toDouble()
-    ..at = DateTime.parse(json['at'] as String);
+    ..at = Post.stringToDate(json['at'] as String);
 }
 
 Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
@@ -20,5 +20,5 @@ Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
       'msg': instance.msg,
       'read': instance.read,
       'stars': instance.stars,
-      'at': instance.at.toIso8601String()
+      'at': Post.dateToString(instance.at)
     };
