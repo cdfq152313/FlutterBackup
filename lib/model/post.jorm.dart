@@ -11,12 +11,14 @@ abstract class _PostBean implements Bean<Post> {
   final msg = StrField('msg');
   final read = BoolField('read');
   final stars = DoubleField('stars');
+  final at = DateTimeField('at');
   Map<String, Field> _fields;
   Map<String, Field> get fields => _fields ??= {
         id.name: id,
         msg.name: msg,
         read.name: read,
         stars.name: stars,
+        at.name: at,
       };
   Post fromMap(Map map) {
     Post model = Post();
@@ -24,6 +26,7 @@ abstract class _PostBean implements Bean<Post> {
     model.msg = adapter.parseValue(map['msg']);
     model.read = adapter.parseValue(map['read']);
     model.stars = adapter.parseValue(map['stars']);
+    model.at = adapter.parseValue(map['at']);
 
     return model;
   }
@@ -37,11 +40,13 @@ abstract class _PostBean implements Bean<Post> {
       ret.add(msg.set(model.msg));
       ret.add(read.set(model.read));
       ret.add(stars.set(model.stars));
+      ret.add(at.set(model.at));
     } else if (only != null) {
       if (only.contains(id.name)) ret.add(id.set(model.id));
       if (only.contains(msg.name)) ret.add(msg.set(model.msg));
       if (only.contains(read.name)) ret.add(read.set(model.read));
       if (only.contains(stars.name)) ret.add(stars.set(model.stars));
+      if (only.contains(at.name)) ret.add(at.set(model.at));
     } else /* if (onlyNonNull) */ {
       if (model.id != null) {
         ret.add(id.set(model.id));
@@ -55,6 +60,9 @@ abstract class _PostBean implements Bean<Post> {
       if (model.stars != null) {
         ret.add(stars.set(model.stars));
       }
+      if (model.at != null) {
+        ret.add(at.set(model.at));
+      }
     }
 
     return ret;
@@ -66,6 +74,7 @@ abstract class _PostBean implements Bean<Post> {
     st.addStr(msg.name, isNullable: true);
     st.addBool(read.name, isNullable: true);
     st.addDouble(stars.name, isNullable: true);
+    st.addDateTime(at.name, isNullable: true);
     return adapter.createTable(st);
   }
 

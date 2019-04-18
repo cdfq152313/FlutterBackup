@@ -9,12 +9,10 @@ part 'post.jorm.dart';
 part 'post.g.dart';
 
 @JsonSerializable(nullable: false)
-class Post with AtField{
+class Post{
   Post();
 
-  Post.make(this.id, this.msg, this.stars, this.read, DateTime at){
-    this.at = at;
-  }
+  Post.make(this.id, this.msg, this.stars, this.read, this.at);
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 
@@ -29,6 +27,9 @@ class Post with AtField{
 
   @Column(isNullable: true)
   double stars;
+
+  @Column(isNullable: true)
+  DateTime at;
 
   String toString() =>
       'Post(id: $id, message: $msg, stars: $stars, read: $read, at: $at)';
