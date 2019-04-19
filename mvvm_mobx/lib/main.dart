@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mvvm_mobx/counter_store.dart';
 import 'package:mvvm_mobx/first.dart';
 
-void main() => runApp(MyApp());
+void main(){
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

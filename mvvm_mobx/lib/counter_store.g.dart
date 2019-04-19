@@ -53,4 +53,14 @@ mixin _$CounterStore on _CounterStore, Store {
       _$_CounterStoreActionController.endAction(_$actionInfo);
     }
   }
+
+  @override
+  void clear() {
+    final _$actionInfo = _$_CounterStoreActionController.startAction();
+    try {
+      return super.clear();
+    } finally {
+      _$_CounterStoreActionController.endAction(_$actionInfo);
+    }
+  }
 }

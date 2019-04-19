@@ -17,7 +17,14 @@ abstract class _CounterStore implements Store {
   @action
   void increment() {
     value++;
-    if(value == 5) navigatorToSecondScreen = true;
+    if(value == 5) {
+      navigatorToSecondScreen = true;
+    }
   }
 
+  @action
+  void clear(){
+    value = 0;
+    navigatorToSecondScreen = false;
+  }
 }
