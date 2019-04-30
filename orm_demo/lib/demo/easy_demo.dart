@@ -20,12 +20,10 @@ void run() async {
   _adapter = new SqfliteAdapter(path.join(dbPath, "test.db"));
   await _adapter.connect();
   final bean = PostBean(_adapter);
-  await bean.drop();
-  await bean.createTable();
 
   Log.debug("=== Start ===");
   var str =
-      '{"id": 1,"msg": "Hello", "read": false,"stars": 200.2,"at": "2008-09-15T15:53:00"}';
+      '{"id": 1,"msg": "Hello", "read": false,"stars": 200.2,"at": "2008-09-15T15:53:00", "author": {"id": 1, "name": "Hello"} }';
   Log.debug("Json Value: " + str);
   Log.debug("");
 
@@ -37,12 +35,12 @@ void run() async {
 
   Log.debug("=== insert object ===");
   Log.debug('Inserting row ...');
-  int id1 = await bean.insert(post);
+  int id1 = await bean.insert(post, cascade: true);
   Log.debug('Inserted successfully row with id: $id1!');
   Log.debug("");
 
   Log.debug("=== find data ===");
-  post = await bean.find(id1);
+  post = await bean.find(id1, preload: true);
   Log.debug('Find id$id1. Result: ' + post.toString());
   Log.debug("");
 

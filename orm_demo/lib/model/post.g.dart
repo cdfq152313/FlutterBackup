@@ -12,7 +12,8 @@ Post _$PostFromJson(Map<String, dynamic> json) {
     ..msg = json['msg'] as String
     ..read = json['read'] as bool
     ..stars = (json['stars'] as num).toDouble()
-    ..at = DateTime.parse(json['at'] as String);
+    ..at = DateTime.parse(json['at'] as String)
+    ..author = Author.fromJson(json['author'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
@@ -20,5 +21,6 @@ Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
       'msg': instance.msg,
       'read': instance.read,
       'stars': instance.stars,
-      'at': instance.at.toIso8601String()
+      'at': instance.at.toIso8601String(),
+      'author': instance.author
     };
